@@ -15,5 +15,7 @@ end
   
   root 'welcome#index'
   
+  get '/new_food_place/:my_place' => 'foods#new', as: 'new_food_place'
+  
   
 end

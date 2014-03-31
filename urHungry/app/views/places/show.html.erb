@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @place.name %>
-</p>
+  
+  <h1><%= @place.name %></h1>
+
 
 <p>
-  <strong>Description:</strong>
-  <%= @place.description %>
+  
+  <strong> <%= @place.description %> </strong>
 </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @place.rating %>
-</p>
+<ul>
+	<% @foods.each do |food| %>
+	
+	<li><%= link_to food.name, food %></li>
+	
+	<% end %>
+</ul>
+
+<%= link_to 'Add Food', new_food_place_path(@place) %> 
+
+<br/>
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>

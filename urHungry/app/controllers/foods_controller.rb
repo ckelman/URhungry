@@ -14,6 +14,7 @@ class FoodsController < ApplicationController
 
   # GET /foods/new
   def new
+    @myPlace = params[:my_place]
     @food = Food.new
   end
 
@@ -25,7 +26,6 @@ class FoodsController < ApplicationController
   # POST /foods.json
   def create
     @food = Food.new(food_params)
-
     respond_to do |format|
       if @food.save
         format.html { redirect_to @food, notice: 'Food was successfully created.' }
