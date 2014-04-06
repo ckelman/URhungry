@@ -17,7 +17,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @review.user_id %>
+  <%= @review.user.email %>
 </p>
 
 <p>
@@ -25,5 +25,10 @@
   <%= @review.food_id %>
 </p>
 
+<% if current_user == @review.user %>
 <%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<%= link_to 'Delete',@review, method: :delete, data: { confirm: 'Are you sure?' } %>|
+<% end %>
+
+<%= link_to 'Back', @review.food %> 
+

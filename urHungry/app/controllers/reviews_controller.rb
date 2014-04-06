@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_user!, :except => [:index, :show]
   # GET /reviews
   # GET /reviews.json
   def index
@@ -14,6 +15,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
+    @myFood = params[:my_food]
     @review = Review.new
   end
 
@@ -54,9 +56,10 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
+    @food = @review.food
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url }
+      format.html { redirect_to @food }
       format.json { head :no_content }
     end
   end

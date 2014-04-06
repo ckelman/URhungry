@@ -24,12 +24,10 @@
     <%= f.text_field :rating %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+   <%=f.hidden_field :user_id, :value => current_user.id%>
   </div>
   <div class="field">
-    <%= f.label :food_id %><br>
-    <%= f.number_field :food_id %>
+    <%=f.hidden_field :food_id, :value => @myFood%>
   </div>
   <div class="actions">
     <%= f.submit %>
