@@ -17,5 +17,7 @@ end
   
   get '/new_food_place/:my_place' => 'foods#new', as: 'new_food_place'
   
+  get '/new_food_review/:my_food' => 'reviews#new', as: 'new_food_review'
+
   
 end

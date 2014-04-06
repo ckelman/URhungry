@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @food.name %>
-</p>
+<h1>
+  <%= @food.place.name %>
+</h1>
 
-<p>
-  <strong>Place:</strong>
-  <%= @food.place_id %>
-</p>
+<h2>
+  <%= @food.name %>
+</h2>
+
+<ul>
+	<% @food.reviews.each do |review| %>
+	<%= link_to review.title, review %>
+	
+	<% end %>
+	
+</ul>
+
+<% if current_user!=nil %>
+<%= link_to 'Write Review', new_food_review_path(@food) %> 
+<br/>
+<% end %>
 
 <%= link_to 'Edit', edit_food_path(@food) %> |
 <%= link_to 'Back', Place.find(@food.place) %>
