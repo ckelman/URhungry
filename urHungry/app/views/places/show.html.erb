@@ -17,9 +17,12 @@
 	<% end %>
 </ul>
 
+<% if current_user != nil &&current_user.is_admin %>
 <%= link_to 'Add Food', new_food_place_path(@place) %> 
 
 <br/>
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Destroy', @place, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>

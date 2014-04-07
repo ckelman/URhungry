@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 
+
+
+
   <body role="document">
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -37,7 +40,10 @@
           	%>
             <li><%= link_to 'About', :controller => '/welcome', :action => 'about'%></li> 
             <li><%= link_to 'Contact', :controller => '/welcome', :action => 'contact'%></li>
-			<li><%= link_to 'New Place', new_place_path%></li>          
+			
+			<% if current_user!=nil && current_user.is_admin == true %>
+			<li><%= link_to 'New Place', new_place_path%></li>
+			<% end %>          
           </ul>
           
           <% if user_signed_in? %>
