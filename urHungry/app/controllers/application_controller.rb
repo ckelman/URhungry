@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   
+  
+
     protected
  
   def devise_parameter_sanitizer
