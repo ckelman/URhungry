@@ -11,7 +11,6 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
-    
     @foods = @place.foods
   end
 
@@ -63,6 +62,16 @@ class PlacesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def load_csv
+    require 'csv'
+    #This file will need to be changed
+    csv_text = File.read("./app/assets/test.csv")
+    csv = CSV.parse(csv_text, :headers => true)
+    csv.each do |row|
+      Food.create!(row.to_hash)
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,4 +83,5 @@ class PlacesController < ApplicationController
     def place_params
       params.require(:place).permit(:name, :description, :rating)
     end
+
 end
