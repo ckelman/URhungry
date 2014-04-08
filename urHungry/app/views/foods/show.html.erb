@@ -21,7 +21,7 @@
 <br/>
 
 
-<% if current_user != nil &&current_user.is_admin %>
+<% if current_user != nil && current_user.is_admin %>
 	<%= link_to 'Edit', edit_food_path(@food) %> |
 <% end %>
 <%= link_to 'Back', Place.find(@food.place) %>
