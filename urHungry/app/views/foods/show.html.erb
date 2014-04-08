@@ -10,7 +10,7 @@
 
 <ul>
 	<% @food.reviews.each do |review| %>
-	<%= link_to review.title, review %>
+	<li><%= link_to review.title, review %></li>
 	
 	<% end %>
 	
