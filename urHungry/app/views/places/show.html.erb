@@ -24,7 +24,7 @@
 	
 	<%= link_to 'Edit', edit_place_path(@place) %> |
 	<%= link_to 'Destroy', @place, method: :delete, data: { confirm: 'Are you sure?' } %>
-	<!-- Doesn't work but we don't really need it to
-	<%= link_to 'Load From CSV', @place, action: :load_data %>
-	-->
+
+	<!-- <%= link_to 'Load From CSV', @place, action: :load_csv %> -->
+	
 <% end %>

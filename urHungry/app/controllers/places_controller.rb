@@ -63,6 +63,11 @@ class PlacesController < ApplicationController
     end
   end
   
+  def load_data
+    load_csv
+    redirect_to places_url
+  end
+  
   def load_csv
     require 'csv'
     #This file will need to be changed
