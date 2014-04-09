@@ -40,8 +40,10 @@ gem 'devise'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# Use passenger as the app server
+#This is needed to get it to work with AWS, not sure if it'll
+#mess up Aptana or not...
+ gem 'passenger'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
