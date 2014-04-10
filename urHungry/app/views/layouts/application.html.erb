@@ -7,9 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 
-
-
-
   <body role="document">
 
     <!-- ><div class="navbar navbar-inverse navbar-fixed-top" role="navigation"> -->
@@ -60,9 +57,16 @@
 	  </ul>
 	<% end %>
           
-          <form class="navbar-form navbar-right">
+       <!--  <form method="get" class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
-          </form>
+       </form> -->
+         <!-- Just directs to foods_controller index right now -->
+         
+         <%= form_tag foods_path, :method => 'get', :class => "navbar-form navbar-right" do %>
+     	<p>
+        	<%= text_field_tag :search, params[:search], :class => "form-control", :placeholder => "Search..." %>
+        </p>
+         <% end %>
           
         </div><!--/.nav-collapse -->
       </div>
@@ -86,4 +90,3 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
   </body>
 </html>
-
