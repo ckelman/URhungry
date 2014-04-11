@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+</br>
+</br>
+<div class="container">
+
 <!-- One issue is starter-template is good for moving the jumbotron down a bit from the 
 	nav bar but it centers all the text. Current fix is to make a class like starter-template
 	but minus the text centering called "padder". -->
@@ -6,6 +11,7 @@
 <%if(notice != nil)%>
 	<h2 class="alert alert-success starter-template"><%= notice %></h2>
 <% end %>
+
 
 <div class="row">
 	<div class="col-md-2"></div>
@@ -20,6 +26,26 @@
 		<ul class="list-group ">			
 			<% @foods.each do |food| %>
 			<div class="dropdown list-group-item">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><Dropdown><%=food.name%> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Read reviews', food, :class => "list-group-item" %></li>
+                <li><%= link_to 'Write a review', new_food_review_path(food), :class => "list-group-item" %></li>
+              </ul>
+            </div>
+            <% end %>
+           </ul>
+			
+			<% if current_user != nil && current_user.is_admin %>
+	<%= link_to 'Add Food', new_food_place_path(@place), :class => "btn btn-primary", :role => "button" %> 
+	
+	<br/>
+	<br/>
+	
+	<%= link_to 'Edit', edit_place_path(@place), :class => "btn btn-primary", :role => "button" %> 
+	<%= link_to 'Destroy', @place, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger", :role => "button" %>
+
+	<!-- <%= link_to 'Load From CSV', @place, action: :load_csv %> -->
+
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=food.name%><span class="caret"></span></a>
 					
 				<ul class="dropdown-menu">
@@ -41,6 +67,7 @@
 				<!-- <%= link_to 'Load From CSV', @place, action: :load_csv %> -->
 			</div>
 		<% end %>
+
 	
 	</div><!--end col-->
 	<div class="col-md-2 "></div>
