@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>UrHungry</title>
+  <title>URHungry</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -62,7 +62,7 @@
        </form> -->
          <!-- Just directs to foods_controller index right now -->
          
-         <%= form_tag foods_path, :method => 'get', :class => "navbar-form navbar-right" do %>
+         <%= form_tag 'FillMeWithTheCorrectPlace', :method => 'get', :class => "navbar-form navbar-right" do %>
      	<p>
         	<%= text_field_tag :search, params[:search], :class => "form-control", :placeholder => "Search..." %>
         </p>
