@@ -1,27 +1,49 @@
-<p id="notice"><%= notice %></p>
+</br>
 
-<h1>
-  <%= @food.place.name %>
-</h1>
 
-<h2>
-  <%= @food.name %>
-</h2>
+</br>
 
-<ul>
-	<% @food.reviews.each do |review| %>
-	<li><%= link_to review.title, review %></li>
+
+
+
+
+<div class="container">
+
+<div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 jumbotron">
+        	<div class="starter-template">
+        	  <h1><%= @food.name %></h1>
+				<p>
+				  <strong> <%= @food.place.name %> </strong>
+				</p>
+				<%= link_to 'Write Review', new_food_review_path(@food), :class => "btn btn-primary btn-lg", :role => "button" %> 
+			</div>
+			
+			 	
+        	<h2>Reviews:</h2>
+        	<ul class="list-group ">
+        		
+			<% @food.reviews.each do |review| %>
+			<li class="list-group-item"><%= link_to review.title, review %>: <%= review.rating %> / 5.0</li>
 	
 	<% end %>
-	
-</ul>
-
-
-<%= link_to 'Write Review', new_food_review_path(@food) %> 
-<br/>
-
-
-<% if current_user != nil && current_user.is_admin %>
-	<%= link_to 'Edit', edit_food_path(@food) %> |
+           </ul>
+			
+			<% if current_user != nil && current_user.is_admin %>
+	<%= link_to 'Edit', edit_food_path(@food), :class => "btn btn-primary", :role => "button"  %> 
 <% end %>
-<%= link_to 'Back', Place.find(@food.place) %>
+<%= link_to 'Back', Place.find(@food.place), :class => "btn btn-primary", :role => "button" %>
+	<!-- <%= link_to 'Load From CSV', @place, action: :load_csv %> -->
+	
+
+        	
+        	
+        </div><!--end col-->
+        <div class="col-md-2 ">
+       
+        </div>
+      </div><!--end row-->
+      
+
+</div><!--end container--> 
