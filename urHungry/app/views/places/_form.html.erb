@@ -1,4 +1,6 @@
-<%= form_for(@place) do |f| %>
+
+			
+						<%= form_for(@place) do |f| %>
   <% if @place.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
@@ -27,3 +29,6 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+	
