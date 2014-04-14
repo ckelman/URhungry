@@ -1,5 +1,33 @@
-<h1>New review</h1>
+
+
+</br>
+</br>
+<div class="container">
+
+<!-- One issue is starter-template is good for moving the jumbotron down a bit from the 
+	nav bar but it centers all the text. Current fix is to make a class like starter-template
+	but minus the text centering called "padder". -->
+
+<div class="container padder">
+<%if(notice != nil)%>
+	<h2 class="alert alert-success starter-template"><%= notice %></h2>
+<% end %>
+
+
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8 jumbotron">
+		<div class="starter-template">
+
+<h1><%= Food.find(@myFood).place.name %></h1>
+<h2><%= Food.find(@myFood).name %></h2>
+<h3>New review</h3>
 
 <%= render 'form' %>
+</br>
+<%= link_to 'Back', Food.find(params[:my_food]),:class => "btn btn-primary", :role => "button"  %>
 
-<%= link_to 'Back', Food.find(params[:my_food]) %>
+	</div><!--end col-->
+	<div class="col-md-2 "></div>
+</div><!--end row-->
+</div><!--end container--> 
