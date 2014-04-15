@@ -10,6 +10,7 @@ UrHungry::Application.routes.draw do
     collection do
       get :about
       get :contact
+      get :search
     end
 end
   
