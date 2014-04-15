@@ -11,10 +11,10 @@ class WelcomeController < ApplicationController
   
   def search
     quer = params[:search]
-    @places = Place.where{ name.matches quer}
-    @foods = Food.where{ name.matches quer}
-    @reviews = Review.where{ title.matches quer}
-    @reviews = (@reviews + Review.where{ body.matches quer}).uniq
+    @places = Place.where{ name.matches '%'+quer+'%'}
+    @foods = Food.where{ name.matches '%'+quer+'%'}
+    @reviews = Review.where{ title.matches '%'+quer+'%'}
+    @reviews = (@reviews + Review.where{ body.matches '%'+quer+'%'}).uniq
     @users = User.where{email.matches quer}
   end
   
