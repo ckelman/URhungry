@@ -44,6 +44,9 @@ gem 'devise'
 #This is needed to get it to work with AWS, not sure if it'll
 #mess up Aptana or not...
  gem 'passenger'
+ 
+ #Helps Query the database
+ gem "squeel"  # Last officially released gem
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

@@ -62,7 +62,7 @@
        </form> -->
          <!-- Just directs to foods_controller index right now -->
          
-         <%= form_tag 'FillMeWithTheCorrectPlace', :method => 'get', :class => "navbar-form navbar-right" do %>
+         <%= form_tag '/welcome/search', :method => 'get', :class => "navbar-form navbar-right" do %>
      	<p>
         	<%= text_field_tag :search, params[:search], :class => "form-control", :placeholder => "Search..." %>
         </p>

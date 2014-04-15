@@ -1,0 +1,59 @@
+
+
+
+
+
+
+
+<!-- One issue is starter-template is good for moving the jumbotron down a bit from the 
+	nav bar but it centers all the text. Current fix is to make a class like starter-template
+	but minus the text centering called "padder". -->
+
+<div class="container padder">
+<%if(notice != nil)%>
+	<h2 class="alert alert-success starter-template"><%= notice %></h2>
+<% end %>
+
+
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8 jumbotron">
+		
+		
+		<h2>Places</h2>
+		
+		<ul class="list-group ">			
+			<% @places.each do |place| %>
+                <li><%= link_to place.name, place, :class => "list-group-item" %></li>
+            <% end %>
+           </ul>
+           
+           
+           <h2>Foods</h2>
+		
+		<ul class="list-group ">			
+			<% @foods.each do |food| %>
+                <li><%= link_to food.name, food, :class => "list-group-item" %></li>
+            <% end %>
+           </ul>
+           
+           <h2>Reviews</h2>
+		
+		<ul class="list-group ">			
+			<% @reviews.each do |review| %>
+                <li><%= link_to review.title, review, :class => "list-group-item" %></li>
+            <% end %>
+           </ul>
+           
+           <h2>Users</h2>
+		
+		<ul class="list-group ">			
+			<% @users.each do |user| %>
+                <li><%= link_to user.email, '#', :class => "list-group-item" %></li>
+            <% end %>
+           </ul>
+
+	</div><!--end col-->
+	<div class="col-md-2 "></div>
+</div><!--end row-->
+</div><!--end container--> 
