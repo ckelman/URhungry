@@ -6,6 +6,8 @@ UrHungry::Application.routes.draw do
 
   resources :places
 
+  resources :ratings, only: :update
+
   resources :welcome do
     collection do
       get :about

@@ -10,6 +10,10 @@ class FoodsController < ApplicationController
   # GET /foods/1
   # GET /foods/1.json
   def show
+    @rating = Rating.where(food_id: @food.id, user_id: current_user).first
+    unless @rating
+      @rating = Rating.create(food_id: @food.id, user_id: current_user, score: 0)
+    end
   end
 
   # GET /foods/new
@@ -21,7 +25,7 @@ class FoodsController < ApplicationController
   # GET /foods/1/edit
   def edit
   end
-
+  
   # POST /foods
   # POST /foods.json
   def create

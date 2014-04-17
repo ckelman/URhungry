@@ -17,6 +17,12 @@
 				<p>
 				  <strong> <%= @food.place.name %> </strong>
 				</p>
+				<p>Average rating</p>
+				<div id="star"></div>
+				
+				<p>Your rating</p>
+				<div id="user_star"></div>
+				
 				<%= link_to 'Write Review', new_food_review_path(@food), :class => "btn btn-primary btn-lg", :role => "button" %> 
 			</div>
 			
@@ -48,3 +54,23 @@
       
 
 </div><!--end container--> 
+
+<script>
+  $('#star').raty({
+    readOnly: true,
+    score: <%= @food.average_rating %>,
+    path: '/assets'
+  });
+
+  $('#user_star').raty({
+    score: <%= @rating.score %>,
+    path: '/assets',
+    click: function(score, evt) {
+      $.ajax({
+        url: '/ratings/' + <%= @rating.id %>,
+        type: 'PATCH',
+        data: { score: score }
+      });
+    }
+  });
+</script>
