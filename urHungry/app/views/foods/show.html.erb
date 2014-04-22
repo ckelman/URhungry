@@ -15,11 +15,12 @@
 				<p>
 				  <strong> <%= @food.place.name %> </strong>
 				</p>
+			<!-- For rating
 				<p>Average rating</p>
 				<div id="star"></div>
 				
 				<p>Your rating</p>
-				<div id="user_star"></div>
+				<div id="user_star"></div> -->
 				
 				<%= link_to 'Write Review', new_food_review_path(@food), :class => "btn btn-primary btn-lg", :role => "button" %> 
 			</div>
@@ -54,6 +55,7 @@
 </div><!--end container--> 
 
 <script>
+//Also for rating
   $('#star').raty({
     readOnly: true,
     score: <%= @food.average_rating %>,

@@ -12,6 +12,7 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @foods = @place.foods
+    load_csv
   end
 
   # GET /places/new
@@ -63,18 +64,14 @@ class PlacesController < ApplicationController
     end
   end
   
-  def load_data
-    load_csv
-    redirect_to places_url
-  end
-  
   def load_csv
     require 'csv'
     #This file will need to be changed
     csv_text = File.read("./app/assets/test.csv")
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
-      Food.create!(row.to_hash)
+      #Food.create!(row.to_hash)
+      Food.create!(:place_id => Place.where{name.matches row['place']}.first.id, :name => row['name'])
     end
   end
 
