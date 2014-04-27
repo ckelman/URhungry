@@ -13,7 +13,8 @@
         	<div class="starter-template">
         	  <h1><%= @food.name %></h1>
 				<p>
-				  <strong> <%= @food.place.name %> </strong>
+				  <strong> <%= @food.place.name %> </strong> <br />
+				  <strong>Average rating: <%= @food.average_score %> </strong>
 				</p>
 			<!-- For rating
 				<p>Average rating</p>
@@ -53,24 +54,3 @@
       
 
 </div><!--end container--> 
-
-<script>
-//Also for rating
-  $('#star').raty({
-    readOnly: true,
-    score: <%= @food.average_rating %>,
-    path: '/assets'
-  });
-
-  $('#user_star').raty({
-    score: <%= @rating.score %>,
-    path: '/assets',
-    click: function(score, evt) {
-      $.ajax({
-        url: '/ratings/' + <%= @rating.id %>,
-        type: 'PATCH',
-        data: { score: score }
-      });
-    }
-  });
-</script>

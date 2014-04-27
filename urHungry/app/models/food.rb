@@ -10,4 +10,12 @@ class Food < ActiveRecord::Base
       0
     end
   end
+  
+  def average_score
+    if reviews.size > 0
+      reviews.sum(:rating) / reviews.size
+    else
+      0
+    end
+  end
 end
