@@ -23,7 +23,7 @@
 			  </div>
 			  <div class="field">
 			    <%= f.label :rating %><br>
-			    <%= f.text_field :rating %>
+			    <%= f.select :rating, ((0..5).map {|i| [i,i]}) %>
 			  </div>
 			  <div class="field">
 			   <%=f.hidden_field :user_id, :value => current_user.id%>
