@@ -43,10 +43,13 @@ gem 'devise'
 # Use passenger as the app server
 #This is needed to get it to work with AWS, not sure if it'll
 #mess up Aptana or not...
- gem 'passenger'
+gem 'passenger'
  
- #Helps Query the database
- gem "squeel"  # Last officially released gem
+#Helps Query the database
+gem "squeel"  # Last officially released gem
+
+#For automatically updating menus
+gem 'whenever', :require => false
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
