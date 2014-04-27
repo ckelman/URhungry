@@ -6,8 +6,7 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.all
-    
-    update_menu
+
   end
 
   # GET /places/1
