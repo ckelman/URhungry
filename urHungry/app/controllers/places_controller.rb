@@ -6,6 +6,8 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.all
+    
+    update_menu
   end
 
   # GET /places/1
@@ -62,6 +64,7 @@ class PlacesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -73,5 +76,15 @@ class PlacesController < ApplicationController
     def place_params
       params.require(:place).permit(:name, :description, :rating)
     end
+    
+      def update_menu
+    require 'csv'
+    csv_text = File.read(Rails.root.join('app', 'assets', 'menu', 'mealinfo.csv'))
+    csv = CSV.parse(csv_text, :headers => true)
+    csv.each do |row|
+        Food.create!(:place_id => Place.where{name.matches row['place']}.first.id, :name => row['name'])
+    end
+  end
+
 
 end
