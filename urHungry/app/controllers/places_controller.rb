@@ -11,7 +11,7 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
-    @foods = @place.foods
+    @foods = @place.foods.sort_by{|e| e[:name]}
   end
 
   # GET /places/new

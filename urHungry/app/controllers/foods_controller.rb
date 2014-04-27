@@ -10,7 +10,7 @@ class FoodsController < ApplicationController
   # GET /foods/1
   # GET /foods/1.json
   def show
-    
+    @reviews = @food.reviews.sort_by{|e| e[:title]}
     #@rating = Rating.where(food_id: @food.id, user_id: current_user).first
     #unless @rating
     #  @rating = Rating.create(food_id: @food.id, user_id: current_user, score: 0)

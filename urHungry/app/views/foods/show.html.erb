@@ -30,7 +30,7 @@
         	<h2>Reviews:</h2>
         	<ul class="list-group ">
         		
-			<% @food.reviews.each do |review| %>
+			<% @reviews.each do |review| %>
 			<li class="list-group-item"><%= link_to review.title, review %>: <%= review.rating %> / 5.0</li>
 	
 	<% end %>
