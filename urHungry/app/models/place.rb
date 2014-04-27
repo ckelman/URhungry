@@ -10,4 +10,12 @@ class Place < ActiveRecord::Base
     end
   end
   
+  def average_score
+    score = 0
+    foods.each do |food|
+      score += food.average_score
+    end
+    (score / foods.length).round(1)
+  end
+  
 end
