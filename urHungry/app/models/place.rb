@@ -3,7 +3,7 @@ class Place < ActiveRecord::Base
   
   def update_menu
     require 'csv'
-    csv_text = File.read(Rails.root.join('app', 'assets', 'menu', 'menu.csv'))
+    csv_text = File.read(Rails.root.join('app', 'assets', 'menu', 'mealinfo.csv'))
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
       Food.create!(:place_id => Place.where{name.matches row['place']}.first.id, :name => row['name'])
