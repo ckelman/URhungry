@@ -21,7 +21,7 @@
 		<ul class="list-group ">			
 			<% @foods.each do |food| %>
 			<div class="dropdown list-group-item">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><Dropdown><%=food.name%> <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><Dropdown><%=food.name%> (<%= food.average_score %> / 5.0)<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Read reviews', food, :class => "list-group-item" %></li>
                 <li><%= link_to 'Write a review', new_food_review_path(food), :class => "list-group-item" %></li>
