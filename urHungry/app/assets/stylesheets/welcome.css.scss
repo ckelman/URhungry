@@ -2,12 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 body{
   background-image:url('rush-rhees.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position:center;
+  font-family: 'myfont';
+}
+
+h1{
+  font-family: 'mainHeaders';
+  font-size: 4em;
+
+}
+h2{
+  font-family: 'mainHeaders';
+  font-size: 3em;
+
+}
+@font-face {
+    font-family: 'mainHeaders';
+    src: url('rochester/Rochester-Regular-webfont.eot');
+    src: url('rochester/Rochester-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('rochester/Rochester-Regular-webfont.woff') format('woff'),
+         url('rochester/Rochester-Regular-webfont.ttf') format('truetype'),
+         url('rochester/Rochester-Regular-webfont.svg#rochesterregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'myfont';
+    src: url('cdreams/CaviarDreams-webfont.eot');
+    src: url('cdreams/CaviarDreams-webfont.eot?#iefix') format('embedded-opentype'),
+         url('cdreams/CaviarDreams-webfont.woff') format('woff'),
+         url('cdreams/CaviarDreams-webfont.ttf') format('truetype'),
+         url('cdreams/CaviarDreams-webfont.svg#caviar_dreamsregular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
 }
 
 // .jumbotron{
