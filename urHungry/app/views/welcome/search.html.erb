@@ -14,7 +14,7 @@
 		
 		<ul class="list-group ">			
 			<% @places.each do |place| %>
-                <li><%= link_to place.name, place, :class => "list-group-item" %></li>
+                <li class="list-group-item"><%= link_to place.name+" - "+place.average_score.to_s, place%></li>
             <% end %>
            </ul>
            
@@ -23,7 +23,7 @@
 		
 		<ul class="list-group ">			
 			<% @foods.each do |food| %>
-                <li><%= link_to food.name, food, :class => "list-group-item" %></li>
+                <li class="list-group-item"><%= link_to food.name+" - "+food.average_score.to_s+" ("+food.place.name+")", food %></li>
             <% end %>
            </ul>
            
@@ -31,7 +31,7 @@
 		
 		<ul class="list-group ">			
 			<% @reviews.each do |review| %>
-                <li><%= link_to review.title, review, :class => "list-group-item" %></li>
+                <li class="list-group-item"><%= link_to review.title+" - "+review.rating.round(1).to_s+" ("+review.food.name+" : "+review.food.place.name+")", review%></li>
             <% end %>
            </ul>
            
