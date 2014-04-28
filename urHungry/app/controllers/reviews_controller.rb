@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:show]
+  before_filter :owner_only, :except => [:show]
   # GET /reviews
   # GET /reviews.json
   def index
@@ -84,5 +85,11 @@ class ReviewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:title, :body, :rating, :user_id, :food_id)
+    end
+    
+    def owner_only
+      if(current_user != @review.user)
+        redirect_to :controller => "welcome", :action => "index"
+      end
     end
 end
