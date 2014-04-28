@@ -1,42 +1,41 @@
+<%= form_for(@review) do |f| %>
+	<% if @review.errors.any? %>
+		<div id="error_explanation">
+  		<h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-			
-						<%= form_for(@review) do |f| %>
-			  <% if @review.errors.any? %>
-			    <div id="error_explanation">
-			      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
-			
-			      <ul>
-			      <% @review.errors.full_messages.each do |msg| %>
-			        <li><%= msg %></li>
-			      <% end %>
-			      </ul>
-			    </div>
-			  <% end %>
-			
-			  <div class="field">
-			    <%= f.label :title %><br>
-			    <%= f.text_field :title %>
-			  </div>
-			  <div class="field">
-			    <%= f.label :body %><br>
-			    <%= f.text_area :body %>
-			  </div>
-			  <div class="field">
-			    <%= f.label :rating %><br>
-			    <%= f.select :rating, ((0..5).map {|i| [i,i]}) %>
-			  </div>
-			  <div class="field">
-			   <%=f.hidden_field :user_id, :value => current_user.id%>
-			  </div>
-			  <div class="field">
-			    <%=f.hidden_field :food_id, :value => @myFood%>
-			  </div>
-			  <div class="actions">
-			    <%= f.submit %>
-			  </div>
-			<% end %>
-	
+  		<ul>
+  			<% @review.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+  			<% end %>
+		</ul>
+		</div>
+	<% end %>
 
-
-	
-
+	<div class="field">
+	<%= f.label :title %><br>
+	<%= f.text_field :title %>
+ 	</div>
+ 	
+  	<div class="field">
+	<%= f.label :body %><br>
+	<%= f.text_area :body %>
+ 	</div>
+  
+	<div class="field">
+	<%= f.label :rating %><br>
+	<%= f.select :rating, ((0..5).map {|i| [i,i]}) %>
+	</div>
+  
+	<div class="field">
+ 	<%=f.hidden_field :user_id, :value => current_user.id%>
+	</div>
+  
+	<div class="field">
+	<%=f.hidden_field :food_id, :value => @myFood%>
+	</div>
+  
+	<div class="actions">
+	<%= f.submit :class => 'btn btn-success'%>
+  	</div>
+  
+<% end %>
