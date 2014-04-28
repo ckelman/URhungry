@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
+  before_filter :admin_only, :except => [:show]
 
   # GET /foods
   # GET /foods.json
@@ -77,4 +78,10 @@ class FoodsController < ApplicationController
     def food_params
       params.require(:food).permit(:name, :place_id)
     end
+    
+    def admin_only
+    if(!current_user.is_admin)
+      redirect_to :controller => "welcome", :action => "index"
+    end
+  end
 end

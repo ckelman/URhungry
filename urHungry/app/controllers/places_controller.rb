@@ -1,6 +1,10 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   
+  before_filter :authenticate_user!, :except => [:show]
+  before_filter :admin_only, :except => [:show]
+  
+  
 
   # GET /places
   # GET /places.json
@@ -82,6 +86,12 @@ class PlacesController < ApplicationController
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
         Food.create!(:place_id => Place.where{name.matches row['place']}.first.id, :name => row['name'])
+    end
+  end
+  
+  def admin_only
+    if(!current_user.is_admin)
+      redirect_to :controller => "welcome", :action => "index"
     end
   end
 
