@@ -31,7 +31,7 @@
         	<ul class="list-group ">
         		
 			<% @reviews.each do |review| %>
-			<li class="list-group-item"><%= link_to review.title+" : "+review.rating.to_s+" / 5.0", review %> </li>
+			<li class="list-group-item"><%= link_to review.title+" : "+review.rating.to_s+" / 5.0 by "+review.user.email, review %> </li>
 	
 	<% end %>
            </ul>
