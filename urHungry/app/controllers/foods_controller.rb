@@ -25,6 +25,7 @@ class FoodsController < ApplicationController
 
   # GET /foods/1/edit
   def edit
+    @myPlace = @food.place.id
   end
   
   # POST /foods
