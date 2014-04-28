@@ -21,6 +21,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1/edit
   def edit
+    @myFood = @review.food.id
   end
 
   # POST /reviews
