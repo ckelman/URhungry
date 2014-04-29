@@ -74,11 +74,12 @@
     
 
     <div class="container">
-		<div class="container padder">
 		<%if(notice != nil)%>
+		<div class="container padder">
 			<h2 class="alert alert-success starter-template"><%= notice %></h2>
 		</div>
 		<% end %>
+		
         <%= yield%>
      
       
