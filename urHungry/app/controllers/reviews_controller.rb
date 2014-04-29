@@ -88,7 +88,7 @@ class ReviewsController < ApplicationController
     end
     
     def owner_only
-      if(@review != nil && current_user != @review.user)
+      if(@review != nil && (current_user != @review.user && !current_user.is_admin))
         redirect_to :controller => "welcome", :action => "index"
       end
     end
