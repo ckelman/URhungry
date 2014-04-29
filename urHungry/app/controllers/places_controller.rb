@@ -80,7 +80,7 @@ class PlacesController < ApplicationController
       params.require(:place).permit(:name, :description, :rating)
     end
     
-      def update_menu
+   def update_menu
     require 'csv'
     csv_text = File.read(Rails.root.join('app', 'assets', 'menu', 'mealinfo.csv'))
     csv = CSV.parse(csv_text, :headers => true)

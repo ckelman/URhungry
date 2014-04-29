@@ -17,4 +17,14 @@ class Place < ActiveRecord::Base
     end
   end
   
+  def foods_reviewed
+    tot = 0
+    foods.each do |food|
+      if food.reviews.length > 0
+        tot += 1
+      end
+    end
+    tot
+  end
+  
 end
