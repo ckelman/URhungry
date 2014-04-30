@@ -1,46 +1,55 @@
-
 body{
- background-image:url('rush-rhees.jpg');
- background-repeat: no-repeat;
- background-size: cover;
- background-attachment: fixed;
- background-position:center;
- font-family: 'myfont';
+  background-image:url('rush-rhees.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position:center;
+  font-family: 'bodyText';
 }
 
 h1{
- font-family: 'mainHeaders';
- font-size: 4em;
-
+  font-family: 'mainHeaders';
+  font-size: 4em;
 }
-h2{
- font-family: 'mainHeaders';
- font-size: 3em;
 
+h2{
+  font-family: 'mainHeaders';
+  font-size: 3em;
 }
 
 ul.list-group{
- font-size: 18px;
+  font-size: 16px;
 }
-@font-face {
-   font-family: 'mainHeaders';
-   src: url('rochester/Rochester-Regular-webfont.eot');
-   src: url('rochester/Rochester-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-        url('rochester/Rochester-Regular-webfont.woff') format('woff'),
-        url('rochester/Rochester-Regular-webfont.ttf') format('truetype'),
-        url('rochester/Rochester-Regular-webfont.svg#rochesterregular') format('svg');
-   font-weight: normal;
-   font-style: normal;
 
+//This part makes the navbar links off center
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
+
+.navbar-form {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
 @font-face {
-   font-family: 'myfont';
+  font-family: 'mainHeaders';
+  src: url('rochester/Rochester-Regular-webfont.eot');
+  src: url('rochester/Rochester-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('rochester/Rochester-Regular-webfont.woff') format('woff'),
+       url('rochester/Rochester-Regular-webfont.ttf') format('truetype'),
+       url('rochester/Rochester-Regular-webfont.svg#rochesterregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+   font-family: 'bodyText';
    src: url('cdreams/CaviarDreams-webfont.eot');
    src: url('cdreams/CaviarDreams-webfont.eot?#iefix') format('embedded-opentype'),
         url('cdreams/CaviarDreams-webfont.woff') format('woff'),
-        url('cdreams/CaviarDreams-webfont.ttf') format('truetype'),
+        url('cdreams/CaviarDreams-webfont.ttf') format('truetype'),        
         url('cdreams/CaviarDreams-webfont.svg#caviar_dreamsregular') format('svg');
-   font-weight: bold;
-   font-style: normal;
-
+  font-weight: bold;
+  font-style: normal;
 }

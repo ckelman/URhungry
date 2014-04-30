@@ -1,31 +1,13 @@
-
-
-</br>
-</br>
-<div class="container">
-
-<!-- One issue is starter-template is good for moving the jumbotron down a bit from the 
-	nav bar but it centers all the text. Current fix is to make a class like starter-template
-	but minus the text centering called "padder". -->
-
 <div class="container padder">
-
 
 <div class="row">
 	<div class="col-md-2"></div>
 	<div class="col-md-8 jumbotron">
 		<div class="starter-template">
-
-<h1>New place</h1>
-
-<%= render 'form' %>
-
-</br>
-
-<%= link_to 'Back', places_path,:class => "btn btn-primary", :role => "button"  %>
-
-
-
+			<h1>New place</h1>
+			<%= render 'form' %><br />	
+			<%= link_to 'Back', places_path,:class => "btn btn-primary", :role => "button"  %>
+		</div>
 	</div><!--end col-->
 	<div class="col-md-2 "></div>
 </div><!--end row-->

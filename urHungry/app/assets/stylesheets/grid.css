@@ -27,3 +27,7 @@ hr {
 	margin-bottom: 40px;
 }
 
+.center-col {
+	float: none;
+	margin: 0 auto;
+}

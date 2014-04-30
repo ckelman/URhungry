@@ -1,51 +1,30 @@
-</br>
-</br>
-
-
-
-
-
-<div class="container">
-
-<div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 jumbotron">
-        	<div class="starter-template">
-        	  <h1><%= @review.title %></h1>
-				<p>
-				  <strong> <%= @review.food.name %> : <%= @review.food.place.name %> </br> <%= @review.rating %> / 5.0 </strong>
-				</p>
+<div class="padder container">
+	
+	<div class="row">
+		<div class="col-md-2"></div>
+		
+		<div class="col-md-8 jumbotron">
+			<div class="starter-template">
+				<h1><%= @review.title %></h1>
+				<p><strong>
+					<%= @review.food.name %> : <%= @review.food.place.name %><br/> 
+					<%= @review.rating %> / 5.0
+				</strong></p>
 			</div>
 			
 			<div class="well">
-				<p>
-					By <%= @review.user.email %>:
-				</p>
+				<p>By <%= @review.user.email %>:</p>
 				
-				<p>
-					<%= @review.body %>
-				</p>
+				<p><%= @review.body %></p>
 			</div>
-			 	
-        	
 			
 			<% if current_user != nil && (current_user.is_admin || current_user == @review.user)%>
 				<%= link_to 'Destroy', @review, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger", :role => "button" %>
-	<%= link_to 'Edit', edit_review_path(@review), :class => "btn btn-primary", :role => "button"  %> 
-<% end %>
-<%= link_to 'Back', Food.find(@review.food), :class => "btn btn-primary", :role => "button" %>
-	<!-- <%= link_to 'Load From CSV', @place, action: :load_csv %> -->
-	
-
-        	
-        	
-        </div><!--end col-->
-        <div class="col-md-2 ">
-       
-        </div>
-      </div><!--end row-->
-      
-
+				<%= link_to 'Edit', edit_review_path(@review), :class => "btn btn-primary", :role => "button"  %> 
+			<% end %>
+			<%= link_to 'Back', Food.find(@review.food), :class => "btn btn-primary", :role => "button" %>
+		</div><!--end col-->
+		
+		<div class="col-md-2 "></div>
+	</div><!--end row-->
 </div><!--end container--> 
-
-

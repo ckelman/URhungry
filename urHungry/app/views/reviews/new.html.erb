@@ -1,20 +1,16 @@
-<div class="container">
-
 <div class="container padder">
 
 <div class="row">
 	<div class="col-md-2"></div>
 	<div class="col-md-8 jumbotron">
 		<div class="starter-template">
-
-<h1><%= Food.find(@myFood).place.name %></h1>
-<h2><%= Food.find(@myFood).name %></h2>
-<h3>New review</h3>
-
-<%= render 'form' %>
-</br>
-<%= link_to 'Back', Food.find(params[:my_food]),:class => "btn btn-primary", :role => "button"  %>
-
+			<h1><%= Food.find(@myFood).place.name %></h1>
+			<h2><%= Food.find(@myFood).name %></h2>
+			<h3>New review</h3>
+			
+			<%= render 'form' %><br />
+			<%= link_to 'Back', Food.find(params[:my_food]),:class => "btn btn-primary", :role => "button" %>
+		</div>
 	</div><!--end col-->
 	<div class="col-md-2 "></div>
 </div><!--end row-->
